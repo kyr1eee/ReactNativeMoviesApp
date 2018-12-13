@@ -3,5 +3,7 @@
 
 ## 运行
 > yarn install
+
 <br>
+
 > react-native run-android
