@@ -1,2 +1,2 @@
 # ReactNativeMoviesApp
-douban comedy movie by react-native
+## 豆瓣喜剧电影排行详情
