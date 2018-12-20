@@ -59,7 +59,7 @@ export default class App extends Component {
             <Image source={{uri: movie.cover_url}} style={styles.thumbnail} />
             <View style={styles.rightContainer}>
                 <Text style={styles.title}>{movie.title}</Text>
-                <Text style={styles.actor}>{actors}</Text>
+                <Text style={styles.actor} numberOfLines={1}>{actors}</Text>
                 <Text style={styles.year}>{movie.release_date} / {movie.regions[0]} / {movie.types[0]}</Text>
                 <Text style={styles.score}>{movie.score}分</Text>
                 <Text style={styles.vote}>{movie.vote_count}人评价</Text>
@@ -82,15 +82,7 @@ export default class App extends Component {
   showActors(actors) {
       let ret = '';
       for(let i = 0;i < actors.length;i++) {
-          if(i !== 0) {
-            ret += ` / ${actors[i]}`;
-          } 
-          if(i === 0) {
-            ret += `${actors[i]}`;
-          }
-          if(i === 1) {
-              break;
-          }
+        ret += i !== 0 ? ` / ${actors[i]}` :  `${actors[i]}`;
       }
       return ret;
   }
@@ -104,6 +96,7 @@ const styles = StyleSheet.create({
       alignItems: 'flex-start',
       backgroundColor: "#F5FCFF",
       paddingBottom: 10,
+      fontSize: 12
   },
   thumbnail: {
       width: 200,
@@ -122,15 +115,12 @@ const styles = StyleSheet.create({
   },
   year: {
       textAlign: 'left',
-      fontSize: 12,
-      paddingBottom: 25,
+      paddingBottom: 24,
   },
   actor: {
-    fontSize: 12,
     paddingBottom: 10,
   },
   vote: {
-    fontSize: 12,
   },
   score: {
     color: '#e09015',
